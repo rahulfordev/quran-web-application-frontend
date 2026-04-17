@@ -116,17 +116,3 @@ Open:
 npm run build
 npm start
 ```
-
-## Notes for Reviewers
-
-- Homepage and surah pages are built to be statically generated where possible.
-- Search is intentionally client-driven because it depends on real-time input.
-- The app is designed as a reading product, not a dashboard, so spacing, type, and contrast are tuned for longer sessions.
-
-## Suggested Next Step
-
-The next strong improvement would be adding:
-
-- bookmarked ayahs
-- recently visited surahs
-- deep-link copy actions for specific ayahs
