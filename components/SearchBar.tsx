@@ -11,12 +11,17 @@ interface SearchBarProps {
   className?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder, className }: SearchBarProps) {
+export function SearchBar({
+  value,
+  onChange,
+  placeholder,
+  className,
+}: SearchBarProps) {
   return (
     <div
       className={cn(
         "group flex items-center gap-3 rounded-full border border-stone-200/80 bg-white/90 px-4 py-3 shadow-[0_20px_50px_-35px_rgba(43,29,18,0.45)] transition focus-within:border-emerald-500/60 focus-within:shadow-[0_24px_60px_-38px_rgba(16,185,129,0.55)]",
-        className
+        className,
       )}
     >
       <Search className="h-5 w-5 text-stone-400 transition group-focus-within:text-emerald-700" />

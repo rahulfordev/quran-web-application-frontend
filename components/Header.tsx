@@ -9,7 +9,7 @@ import { useReaderSettings } from "@/providers/SettingsProvider";
 
 const navigationItems = [
   { href: "/", label: "Surahs", icon: LibraryBig },
-  { href: "/search", label: "Search", icon: Search }
+  { href: "/search", label: "Search", icon: Search },
 ];
 
 export function Header() {
@@ -24,14 +24,19 @@ export function Header() {
             <BookMarked className="h-5 w-5" />
           </div>
           <div>
-            <p className="font-display text-xl tracking-tight text-stone-950">Tarteel Reader</p>
-            <p className="text-xs uppercase tracking-[0.32em] text-stone-500">Quran reading companion</p>
+            <p className="font-display text-xl tracking-tight text-stone-950">
+              Tarteel Reader
+            </p>
+            <p className="text-xs uppercase tracking-[0.32em] text-stone-500">
+              Quran reading companion
+            </p>
           </div>
         </Link>
 
         <nav className="hidden items-center gap-2 rounded-full border border-white/70 bg-white/70 p-1.5 shadow-[0_20px_60px_-35px_rgba(43,29,18,0.4)] md:flex">
           {navigationItems.map(({ href, icon: Icon, label }) => {
-            const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
+            const isActive =
+              pathname === href || (href !== "/" && pathname.startsWith(href));
 
             return (
               <Link
@@ -41,7 +46,7 @@ export function Header() {
                   "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition",
                   isActive
                     ? "bg-stone-950 !text-stone-50"
-                    : "text-stone-600 hover:bg-stone-100 hover:text-stone-950"
+                    : "text-stone-600 hover:bg-stone-100 hover:text-stone-950",
                 )}
               >
                 <Icon className="h-4 w-4" />

@@ -9,7 +9,13 @@ interface ErrorStateProps {
 
 export function ErrorState({
   title = "Something interrupted the reading flow",
-  description = "The backend did not return the expected response. Please try again in a moment."
+  description = "The backend did not return the expected response. Please try again in a moment.",
 }: ErrorStateProps) {
-  return <EmptyState title={title} description={description} icon={<AlertTriangle className="h-6 w-6" />} />;
+  return (
+    <EmptyState
+      title={title}
+      description={description}
+      icon={<AlertTriangle className="h-6 w-6" />}
+    />
+  );
 }

@@ -26,9 +26,14 @@ export function SurahDirectory({ surahs }: SurahDirectoryProps) {
     }
 
     return surahs.filter((surah) =>
-      [surah.nameEnglish, surah.nameArabic, surah.nameEnglishTranslation, `${surah.id}`]
+      [
+        surah.nameEnglish,
+        surah.nameArabic,
+        surah.nameEnglishTranslation,
+        `${surah.id}`,
+      ]
         .map(normalizeText)
-        .some((value) => value.includes(normalizedQuery))
+        .some((value) => value.includes(normalizedQuery)),
     );
   }, [deferredQuery, surahs]);
 

@@ -15,7 +15,7 @@ export function SurahCard({ surah, className }: SurahCardProps) {
       href={`/surah/${surah.id}`}
       className={cn(
         "group relative overflow-hidden rounded-4xl border border-white/70 bg-white/85 p-5 shadow-[0_24px_70px_-40px_rgba(43,29,18,0.45)] backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-emerald-500/30 hover:shadow-[0_36px_90px_-42px_rgba(16,185,129,0.35)]",
-        className
+        className,
       )}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.12),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(180,83,9,0.08),transparent_26%)] opacity-0 transition duration-300 group-hover:opacity-100" />
@@ -25,9 +25,15 @@ export function SurahCard({ surah, className }: SurahCardProps) {
             {surah.id}
           </div>
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.24em] text-emerald-700/80">{surah.revelationType}</p>
-            <h3 className="mt-1 text-xl font-semibold tracking-tight text-stone-950">{surah.nameEnglish}</h3>
-            <p className="mt-1 text-sm text-stone-500">{surah.nameEnglishTranslation}</p>
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-emerald-700/80">
+              {surah.revelationType}
+            </p>
+            <h3 className="mt-1 text-xl font-semibold tracking-tight text-stone-950">
+              {surah.nameEnglish}
+            </h3>
+            <p className="mt-1 text-sm text-stone-500">
+              {surah.nameEnglishTranslation}
+            </p>
           </div>
         </div>
         <ArrowUpRight className="h-5 w-5 text-stone-300 transition group-hover:text-emerald-700" />

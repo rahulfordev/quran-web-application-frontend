@@ -13,7 +13,7 @@ export function SettingsPanel() {
     setTranslationFontSize,
     resetSettings,
     isPanelOpen,
-    setIsPanelOpen
+    setIsPanelOpen,
   } = useReaderSettings();
 
   return (
@@ -37,10 +37,15 @@ export function SettingsPanel() {
       >
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">Settings</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight text-stone-950">Tune your reading flow</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
+              Settings
+            </p>
+            <h2 className="mt-2 font-display text-3xl tracking-tight text-stone-950">
+              Tune your reading flow
+            </h2>
             <p className="mt-2 text-sm leading-7 text-stone-600">
-              Adjust Arabic font style and text sizes. Your preferences are saved locally and follow you across pages.
+              Adjust Arabic font style and text sizes. Your preferences are
+              saved locally and follow you across pages.
             </p>
           </div>
           <button
@@ -55,7 +60,9 @@ export function SettingsPanel() {
 
         <div className="mt-8 space-y-8">
           <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_-38px_rgba(43,29,18,0.35)]">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-stone-500">Arabic font</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-stone-500">
+              Arabic font
+            </h3>
             <div className="mt-4 grid grid-cols-2 gap-3">
               {arabicFontOptions.map((option) => {
                 const active = option.value === settings.arabicFont;
@@ -75,7 +82,7 @@ export function SettingsPanel() {
                         fontFamily:
                           option.value === "amiri"
                             ? "var(--font-arabic-amiri)"
-                            : "var(--font-arabic-scheherazade)"
+                            : "var(--font-arabic-scheherazade)",
                       }}
                     >
                       الحمد
@@ -96,10 +103,14 @@ export function SettingsPanel() {
               max={3.6}
               step={0.1}
               value={settings.arabicFontSize}
-              onChange={(event) => setArabicFontSize(Number(event.target.value))}
+              onChange={(event) =>
+                setArabicFontSize(Number(event.target.value))
+              }
               className="mt-4 w-full accent-stone-950"
             />
-            <p className="mt-3 text-sm text-stone-600">{settings.arabicFontSize.toFixed(1)}rem</p>
+            <p className="mt-3 text-sm text-stone-600">
+              {settings.arabicFontSize.toFixed(1)}rem
+            </p>
           </section>
 
           <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_-38px_rgba(43,29,18,0.35)]">
@@ -112,10 +123,14 @@ export function SettingsPanel() {
               max={1.5}
               step={0.05}
               value={settings.translationFontSize}
-              onChange={(event) => setTranslationFontSize(Number(event.target.value))}
+              onChange={(event) =>
+                setTranslationFontSize(Number(event.target.value))
+              }
               className="mt-4 w-full accent-stone-950"
             />
-            <p className="mt-3 text-sm text-stone-600">{settings.translationFontSize.toFixed(2)}rem</p>
+            <p className="mt-3 text-sm text-stone-600">
+              {settings.translationFontSize.toFixed(2)}rem
+            </p>
           </section>
         </div>
 

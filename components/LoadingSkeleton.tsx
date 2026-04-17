@@ -5,5 +5,9 @@ interface LoadingSkeletonProps {
 }
 
 export function LoadingSkeleton({ className }: LoadingSkeletonProps) {
-  return <div className={cn("animate-pulse rounded-3xl bg-stone-200/80", className)} />;
+  return (
+    <div
+      className={cn("animate-pulse rounded-3xl bg-stone-200/80", className)}
+    />
+  );
 }

@@ -4,7 +4,12 @@ import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Compass, Search as SearchIcon } from "lucide-react";
 
-import { type SearchPayload, type SearchResultItem, ApiClientError, searchAyahs } from "@/lib/api";
+import {
+  type SearchPayload,
+  type SearchResultItem,
+  ApiClientError,
+  searchAyahs,
+} from "@/lib/api";
 import { normalizeText } from "@/lib/utils";
 
 import { EmptyState } from "./EmptyState";
@@ -19,17 +24,23 @@ const highlightText = (text: string, query: string) => {
     return text;
   }
 
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "ig");
+  const regex = new RegExp(
+    `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+    "ig",
+  );
   const segments = text.split(regex);
 
   return segments.map((segment, index) =>
     normalizeText(segment) === normalizedQuery ? (
-      <mark key={`${segment}-${index}`} className="rounded bg-emerald-100 px-1 text-emerald-900">
+      <mark
+        key={`${segment}-${index}`}
+        className="rounded bg-emerald-100 px-1 text-emerald-900"
+      >
         {segment}
       </mark>
     ) : (
       <span key={`${segment}-${index}`}>{segment}</span>
-    )
+    ),
   );
 };
 
@@ -63,7 +74,9 @@ export function SearchExperience() {
 
         setResults(null);
         setErrorMessage(
-          error instanceof ApiClientError ? error.message : "Unable to search right now. Please try again."
+          error instanceof ApiClientError
+            ? error.message
+            : "Unable to search right now. Please try again.",
         );
       } finally {
         if (!controller.signal.aborted) {
@@ -138,22 +151,33 @@ export function SearchExperience() {
         className="max-w-3xl"
       />
 
-      {visibleResults && visibleResults.items.length > 0 && !isLoading && !visibleError ? (
+      {visibleResults &&
+      visibleResults.items.length > 0 &&
+      !isLoading &&
+      !visibleError ? (
         <div className="space-y-4">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">Results</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
+                Results
+              </p>
               <h2 className="mt-2 font-display text-3xl tracking-tight text-stone-950">
-                {visibleResults.pagination.totalResults} ayah matches for &quot;{visibleResults.query}&quot;
+                {visibleResults.pagination.totalResults} ayah matches for &quot;
+                {visibleResults.query}&quot;
               </h2>
             </div>
             <p className="text-sm text-stone-500">
-              Page {visibleResults.pagination.page} of {visibleResults.pagination.totalPages}
+              Page {visibleResults.pagination.page} of{" "}
+              {visibleResults.pagination.totalPages}
             </p>
           </div>
 
           {visibleResults.items.map((result) => (
-            <SearchResultCard key={`${result.surahId}-${result.ayahNumber}-${result.translationText}`} item={result} query={visibleResults.query} />
+            <SearchResultCard
+              key={`${result.surahId}-${result.ayahNumber}-${result.translationText}`}
+              item={result}
+              query={visibleResults.query}
+            />
           ))}
         </div>
       ) : null}
@@ -163,12 +187,20 @@ export function SearchExperience() {
   );
 }
 
-function SearchResultCard({ item, query }: { item: SearchResultItem; query: string }) {
+function SearchResultCard({
+  item,
+  query,
+}: {
+  item: SearchResultItem;
+  query: string;
+}) {
   return (
     <article className="rounded-4xl border border-white/70 bg-white/88 p-6 shadow-[0_24px_70px_-42px_rgba(43,29,18,0.45)] backdrop-blur">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">{item.revelationType}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
+            {item.revelationType}
+          </p>
           <h3 className="mt-2 text-xl font-semibold text-stone-950">
             {item.surahNameEnglish} - Ayah {item.ayahNumber}
           </h3>
