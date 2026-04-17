@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { Settings2, X } from "lucide-react";
 
 import { arabicFontOptions } from "@/lib/settings";
 import { useReaderSettings } from "@/providers/SettingsProvider";
@@ -19,11 +19,21 @@ export function SettingsPanel() {
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-stone-950/35 transition ${isPanelOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-50 bg-stone-950/35 transition ${isPanelOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={() => setIsPanelOpen(false)}
       />
+      <button
+        type="button"
+        onClick={() => setIsPanelOpen(true)}
+        className={`fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-stone-200/80 bg-stone-950 px-4 py-3 text-sm font-semibold text-stone-50 shadow-[0_22px_60px_-35px_rgba(0,0,0,0.65)] transition hover:-translate-y-0.5 md:hidden ${isPanelOpen ? "pointer-events-none opacity-0" : "opacity-100"}`}
+        aria-label="Open reading settings"
+      >
+        <Settings2 className="h-4 w-4" />
+        Settings
+      </button>
       <aside
-        className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform border-l border-white/60 bg-[linear-gradient(180deg,rgba(255,251,245,0.98),rgba(247,240,231,0.96))] p-6 shadow-2xl shadow-stone-900/30 transition duration-300 ${isPanelOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed right-0 top-0 z-[60] h-full w-full max-w-md transform overflow-y-auto border-l border-white/60 bg-[linear-gradient(180deg,rgba(255,251,245,0.98),rgba(247,240,231,0.96))] p-6 shadow-2xl shadow-stone-900/30 transition duration-300 ${isPanelOpen ? "translate-x-0" : "translate-x-full"}`}
+        aria-hidden={!isPanelOpen}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
