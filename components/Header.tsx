@@ -54,7 +54,8 @@ export function Header() {
         <button
           type="button"
           onClick={() => setIsPanelOpen(true)}
-          className="inline-flex items-center gap-2 rounded-full border border-stone-200/80 bg-white px-4 py-2.5 text-sm font-medium text-stone-700 shadow-[0_18px_50px_-38px_rgba(43,29,18,0.5)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-4 py-2.5 text-sm font-medium text-stone-700 shadow-[0_18px_50px_-38px_rgba(43,29,18,0.5)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950"
+          aria-label="Open reading settings"
         >
           <Settings2 className="h-4 w-4" />
           <span className="hidden sm:inline">Reading settings</span>
