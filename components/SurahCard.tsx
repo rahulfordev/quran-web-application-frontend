@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 
-import type { SurahSummary } from "@/lib/api";
+import type { SurahSummary } from "@/types/api";
 import { cn, formatAyahCount } from "@/lib/utils";
 
 interface SurahCardProps {

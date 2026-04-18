@@ -5,11 +5,10 @@ import Link from "next/link";
 import { Compass, Search as SearchIcon } from "lucide-react";
 
 import {
-  type SearchPayload,
-  type SearchResultItem,
   ApiClientError,
   searchAyahs,
-} from "@/lib/api";
+} from "@/services/api";
+import type { SearchPayload, SearchResultItem } from "@/types/api";
 import { normalizeText } from "@/lib/utils";
 
 import { EmptyState } from "./EmptyState";

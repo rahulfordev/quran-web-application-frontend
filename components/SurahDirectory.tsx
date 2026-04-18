@@ -3,7 +3,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 import { Sparkles } from "lucide-react";
 
-import type { SurahSummary } from "@/lib/api";
+import type { SurahSummary } from "@/types/api";
 import { normalizeText } from "@/lib/utils";
 
 import { EmptyState } from "./EmptyState";

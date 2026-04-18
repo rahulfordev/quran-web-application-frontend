@@ -2,7 +2,7 @@ import { BookOpenText, Compass } from "lucide-react";
 
 import { ErrorState } from "@/components/ErrorState";
 import { SurahDirectory } from "@/components/SurahDirectory";
-import { getSurahs } from "@/lib/api-server";
+import { getSurahs } from "@/services/api";
 
 export const revalidate = 3600;
 

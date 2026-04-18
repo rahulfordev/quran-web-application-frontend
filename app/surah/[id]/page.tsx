@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 
 import { AyahItem } from "@/components/AyahItem";
 import { ErrorState } from "@/components/ErrorState";
-import { ApiClientError, type SurahDetailsPayload } from "@/lib/api";
-import { getSurahById, getSurahs } from "@/lib/api-server";
+import { ApiClientError, getSurahById, getSurahs } from "@/services/api";
+import type { SurahDetailsPayload } from "@/types/api";
 
 export const revalidate = 3600;
 

@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import type { SearchPayload } from "@/lib/api";
+import type { SearchPayload } from "@/types/api";
 
 interface PaginationControlsProps {
   pagination: SearchPayload["pagination"];

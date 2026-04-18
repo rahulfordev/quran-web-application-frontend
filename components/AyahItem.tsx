@@ -1,4 +1,4 @@
-import type { Ayah } from "@/lib/api";
+import type { Ayah } from "@/types/api";
 
 interface AyahItemProps {
   ayah: Ayah;
