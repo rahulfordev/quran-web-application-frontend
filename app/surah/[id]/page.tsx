@@ -56,7 +56,7 @@ export default async function SurahPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-      <section className="rounded-4xl border border-white/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.92),rgba(247,240,231,0.86))] p-8 shadow-[0_30px_90px_-46px_rgba(43,29,18,0.45)] backdrop-blur sm:p-10">
+      <section className="rounded-4xl border border-white/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.92),rgba(247,240,231,0.86))] p-8 shadow-[0_16px_40px_-28px_rgba(43,29,18,0.28)] backdrop-blur sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.36em] text-emerald-700/80">{payload.surah.revelationType}</p>
         <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
