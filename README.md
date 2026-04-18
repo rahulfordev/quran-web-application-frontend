@@ -15,7 +15,8 @@ Modern, reading-first Quran frontend built with the latest Next.js App Router an
   - settings persist in `localStorage`
   - Arabic font and text-size preferences are applied globally via CSS variables
 - Data layer:
-  - reusable API helpers live in `lib/api.ts`
+  - reusable HTTP and domain API services live in `services/api`
+  - shared API payload types live in `types/api.ts`
   - the frontend reads `NEXT_PUBLIC_API_BASE_URL` from environment variables
 
 ## Tailwind CSS v4 Setup
@@ -47,17 +48,25 @@ frontend
 |   |-- ErrorState.tsx
 |   |-- Header.tsx
 |   |-- LoadingSkeleton.tsx
+|   |-- PaginationControls.tsx
 |   |-- SearchBar.tsx
 |   |-- SearchExperience.tsx
 |   |-- SettingsPanel.tsx
 |   |-- SurahCard.tsx
 |   `-- SurahDirectory.tsx
 |-- lib
-|   |-- api.ts
 |   |-- settings.ts
 |   `-- utils.ts
 |-- providers
 |   `-- SettingsProvider.tsx
+|-- services
+|   `-- api
+|       |-- api-client.ts
+|       |-- index.ts
+|       |-- quran.service.ts
+|       `-- search.service.ts
+|-- types
+|   `-- api.ts
 |-- .env.example
 |-- eslint.config.mjs
 |-- next.config.ts
@@ -72,6 +81,7 @@ frontend
 - Static surah detail pages with all ayahs
 - Search experience for ayah translation text
 - Highlighted keyword matches in translation results
+- Paginated search results with mobile-friendly controls
 - Sticky header
 - Floating reading settings panel
 - Arabic font switcher with `Amiri` and `Scheherazade New`
