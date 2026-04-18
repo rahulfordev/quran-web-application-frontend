@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookMarked, LibraryBig, Search, Settings2 } from "lucide-react";
+import { LibraryBig, Search, Settings2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useReaderSettings } from "@/providers/SettingsProvider";
@@ -20,8 +21,15 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/60 bg-[rgba(250,246,240,0.78)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-stone-950 text-stone-50 shadow-lg shadow-stone-900/20 sm:h-11 sm:w-11">
-            <BookMarked className="h-4 w-4 sm:h-5 sm:w-5" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-stone-200/80 bg-white/90 shadow-[0_8px_18px_-14px_rgba(43,29,18,0.14)] sm:h-11 sm:w-11">
+            <Image
+              src="/favicon.png"
+              alt="Tarteel Reader logo"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-xl object-cover sm:h-9 sm:w-9"
+              priority
+            />
           </div>
           <div className="min-w-0">
             <p className="truncate font-display text-lg tracking-tight text-stone-950 sm:text-xl">
