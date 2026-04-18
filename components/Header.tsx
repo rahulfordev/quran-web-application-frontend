@@ -18,16 +18,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/60 bg-[rgba(250,246,240,0.78)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-stone-950 text-stone-50 shadow-lg shadow-stone-900/20">
-            <BookMarked className="h-5 w-5" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-stone-950 text-stone-50 shadow-lg shadow-stone-900/20 sm:h-11 sm:w-11">
+            <BookMarked className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
-          <div>
-            <p className="font-display text-xl tracking-tight text-stone-950">
+          <div className="min-w-0">
+            <p className="truncate font-display text-lg tracking-tight text-stone-950 sm:text-xl">
               Tarteel Reader
             </p>
-            <p className="text-xs uppercase tracking-[0.32em] text-stone-500">
+            <p className="hidden text-xs uppercase tracking-[0.32em] text-stone-500 sm:block">
               Quran reading companion
             </p>
           </div>
@@ -56,15 +56,25 @@ export function Header() {
           })}
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setIsPanelOpen(true)}
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-4 py-2.5 text-sm font-medium text-stone-700 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950"
-          aria-label="Open reading settings"
-        >
-          <Settings2 className="h-4 w-4" />
-          <span className="hidden sm:inline">Reading settings</span>
-        </button>
+        <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-0">
+          <Link
+            href="/search"
+            className="inline-flex items-center gap-2 rounded-full border border-stone-200/80 bg-white px-3 py-2.5 text-sm font-medium text-stone-700 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950 md:hidden"
+            aria-label="Open ayah search"
+          >
+            <Search className="h-4 w-4" />
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setIsPanelOpen(true)}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-3 py-2.5 text-sm font-medium text-stone-700 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950 sm:px-4"
+            aria-label="Open reading settings"
+          >
+            <Settings2 className="h-4 w-4" />
+            <span className="hidden md:inline">Reading settings</span>
+          </button>
+        </div>
       </div>
     </header>
   );
