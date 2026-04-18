@@ -15,6 +15,7 @@ import { normalizeText } from "@/lib/utils";
 import { EmptyState } from "./EmptyState";
 import { ErrorState } from "./ErrorState";
 import { LoadingSkeleton } from "./LoadingSkeleton";
+import { PaginationControls } from "./PaginationControls";
 import { SearchBar } from "./SearchBar";
 
 const highlightText = (text: string, query: string) => {
@@ -46,6 +47,7 @@ const highlightText = (text: string, query: string) => {
 
 export function SearchExperience() {
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
   const deferredQuery = useDeferredValue(query);
   const [results, setResults] = useState<SearchPayload | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +67,7 @@ export function SearchExperience() {
       setResults(null);
 
       try {
-        const payload = await searchAyahs(trimmedQuery, controller.signal);
+        const payload = await searchAyahs(trimmedQuery, page, controller.signal);
         setResults(payload);
       } catch (error) {
         if (controller.signal.aborted) {
@@ -89,11 +91,10 @@ export function SearchExperience() {
       controller.abort();
       window.clearTimeout(timer);
     };
-  }, [shouldSearch, trimmedQuery]);
+  }, [page, shouldSearch, trimmedQuery]);
 
   const visibleResults = shouldSearch ? results : null;
   const visibleError = shouldSearch ? errorMessage : null;
-
   const helperState = useMemo(() => {
     if (!query.trim()) {
       return (
@@ -146,7 +147,10 @@ export function SearchExperience() {
     <div className="space-y-8">
       <SearchBar
         value={query}
-        onChange={setQuery}
+        onChange={(nextQuery) => {
+          setQuery(nextQuery);
+          setPage(1);
+        }}
         placeholder="Search the translation text, for example: mercy, truth, patience"
         className="max-w-3xl"
       />
@@ -156,7 +160,7 @@ export function SearchExperience() {
       !isLoading &&
       !visibleError ? (
         <div className="space-y-4">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
                 Results
@@ -179,6 +183,13 @@ export function SearchExperience() {
               query={visibleResults.query}
             />
           ))}
+
+          {visibleResults.pagination.totalPages > 1 ? (
+            <PaginationControls
+              pagination={visibleResults.pagination}
+              onPageChange={setPage}
+            />
+          ) : null}
         </div>
       ) : null}
 

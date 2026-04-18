@@ -99,8 +99,8 @@ export async function requestJson<T>(
   return payload.data;
 }
 
-export const searchAyahs = async (query: string, signal?: AbortSignal) =>
-  requestJson<SearchPayload>(`/search?q=${encodeURIComponent(query)}&limit=20&page=1`, {
+export const searchAyahs = async (query: string, page = 1, signal?: AbortSignal) =>
+  requestJson<SearchPayload>(`/search?q=${encodeURIComponent(query)}&limit=20&page=${page}`, {
     signal,
     cache: "no-store"
   });
