@@ -33,7 +33,7 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-white/70 bg-white/70 p-1.5 shadow-[0_20px_60px_-35px_rgba(43,29,18,0.4)] md:flex">
+        <nav className="hidden items-center gap-2 rounded-full border border-white/70 bg-white/70 p-1.5 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] md:flex">
           {navigationItems.map(({ href, icon: Icon, label }) => {
             const isActive =
               pathname === href || (href !== "/" && pathname.startsWith(href));
@@ -59,7 +59,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setIsPanelOpen(true)}
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-4 py-2.5 text-sm font-medium text-stone-700 shadow-[0_18px_50px_-38px_rgba(43,29,18,0.5)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-4 py-2.5 text-sm font-medium text-stone-700 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:text-stone-950"
           aria-label="Open reading settings"
         >
           <Settings2 className="h-4 w-4" />

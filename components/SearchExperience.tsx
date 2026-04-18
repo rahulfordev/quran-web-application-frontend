@@ -195,7 +195,7 @@ function SearchResultCard({
   query: string;
 }) {
   return (
-    <article className="rounded-4xl border border-white/70 bg-white/88 p-6 shadow-[0_24px_70px_-42px_rgba(43,29,18,0.45)] backdrop-blur">
+    <article className="rounded-4xl border border-white/70 bg-white/88 p-6 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">

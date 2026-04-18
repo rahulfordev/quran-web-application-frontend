@@ -25,7 +25,7 @@ export function SettingsPanel() {
       <button
         type="button"
         onClick={() => setIsPanelOpen(true)}
-        className={`fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-stone-200/80 bg-stone-950 px-4 py-3 text-sm font-semibold text-stone-50 shadow-[0_22px_60px_-35px_rgba(0,0,0,0.65)] transition hover:-translate-y-0.5 md:hidden ${isPanelOpen ? "pointer-events-none opacity-0" : "opacity-100"}`}
+        className={`fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-stone-200/80 bg-stone-950 px-4 py-3 text-sm font-semibold text-stone-50 shadow-[0_14px_32px_-20px_rgba(0,0,0,0.4)] transition hover:-translate-y-0.5 md:hidden ${isPanelOpen ? "pointer-events-none opacity-0" : "opacity-100"}`}
         aria-label="Open reading settings"
       >
         <Settings2 className="h-4 w-4" />
@@ -59,7 +59,7 @@ export function SettingsPanel() {
         </div>
 
         <div className="mt-8 space-y-8">
-          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_-38px_rgba(43,29,18,0.35)]">
+          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)]">
             <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-stone-500">
               Arabic font
             </h3>
@@ -93,7 +93,7 @@ export function SettingsPanel() {
             </div>
           </section>
 
-          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_-38px_rgba(43,29,18,0.35)]">
+          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)]">
             <label className="block text-sm font-semibold uppercase tracking-[0.28em] text-stone-500">
               Arabic font size
             </label>
@@ -113,7 +113,7 @@ export function SettingsPanel() {
             </p>
           </section>
 
-          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_-38px_rgba(43,29,18,0.35)]">
+          <section className="rounded-4xl border border-white/70 bg-white/80 p-5 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)]">
             <label className="block text-sm font-semibold uppercase tracking-[0.28em] text-stone-500">
               Translation font size
             </label>

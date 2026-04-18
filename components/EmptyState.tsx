@@ -18,7 +18,7 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "rounded-4xl border border-white/60 bg-white/85 p-8 text-center shadow-[0_24px_60px_-35px_rgba(43,29,18,0.4)] backdrop-blur",
+        "rounded-4xl border border-white/60 bg-white/85 p-8 text-center shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] backdrop-blur",
         className,
       )}
     >

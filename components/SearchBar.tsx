@@ -20,7 +20,7 @@ export function SearchBar({
   return (
     <div
       className={cn(
-        "group flex items-center gap-3 rounded-full border border-stone-200/80 bg-white/90 px-4 py-3 shadow-[0_20px_50px_-35px_rgba(43,29,18,0.45)] transition focus-within:border-emerald-500/60 focus-within:shadow-[0_24px_60px_-38px_rgba(16,185,129,0.55)]",
+        "group flex items-center gap-3 rounded-full border border-stone-200/80 bg-white/90 px-4 py-3 shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] transition focus-within:border-emerald-500/60 focus-within:shadow-[0_16px_36px_-22px_rgba(16,185,129,0.26)]",
         className,
       )}
     >

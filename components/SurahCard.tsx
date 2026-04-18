@@ -14,7 +14,7 @@ export function SurahCard({ surah, className }: SurahCardProps) {
     <Link
       href={`/surah/${surah.id}`}
       className={cn(
-        "group relative overflow-hidden rounded-4xl border border-white/70 bg-white/85 p-5 shadow-[0_24px_70px_-40px_rgba(43,29,18,0.45)] backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-emerald-500/30 hover:shadow-[0_36px_90px_-42px_rgba(16,185,129,0.35)]",
+        "group relative overflow-hidden rounded-4xl border border-white/70 bg-white/85 p-5 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-emerald-500/30 hover:shadow-[0_20px_44px_-24px_rgba(16,185,129,0.22)]",
         className,
       )}
     >
