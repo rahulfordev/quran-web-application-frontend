@@ -8,6 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState
 } from "react";
 
@@ -31,6 +32,24 @@ interface SettingsContextValue {
 
 const SettingsContext = createContext<SettingsContextValue | null>(null);
 
+const readStoredSettings = (): ReaderSettings => {
+  if (typeof window === "undefined") {
+    return defaultReaderSettings;
+  }
+
+  try {
+    const rawSettings = window.localStorage.getItem(settingsStorageKey);
+    const parsedSettings = rawSettings ? (JSON.parse(rawSettings) as Partial<ReaderSettings>) : null;
+    return sanitizeSettings(parsedSettings);
+  } catch {
+    return defaultReaderSettings;
+  }
+};
+
+const writeStoredSettings = (settings: ReaderSettings) => {
+  window.localStorage.setItem(settingsStorageKey, JSON.stringify(settings));
+};
+
 const applySettingsToDocument = (settings: ReaderSettings) => {
   document.documentElement.dataset.arabicFont = settings.arabicFont;
   document.documentElement.style.setProperty("--reader-arabic-size", `${settings.arabicFontSize}rem`);
@@ -41,24 +60,34 @@ const applySettingsToDocument = (settings: ReaderSettings) => {
 };
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState<ReaderSettings>(() => {
-    if (typeof window === "undefined") {
-      return defaultReaderSettings;
-    }
-
-    try {
-      const rawSettings = window.localStorage.getItem(settingsStorageKey);
-      const parsedSettings = rawSettings ? (JSON.parse(rawSettings) as Partial<ReaderSettings>) : null;
-      return sanitizeSettings(parsedSettings);
-    } catch {
-      return defaultReaderSettings;
-    }
-  });
+  const [settings, setSettings] = useState(defaultReaderSettings);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const hasHydratedSettings = useRef(false);
+
+  useEffect(() => {
+    const syncStoredSettings = () => {
+      setSettings(readStoredSettings());
+      hasHydratedSettings.current = true;
+    };
+
+    syncStoredSettings();
+    window.addEventListener("storage", syncStoredSettings);
+
+    return () => {
+      window.removeEventListener("storage", syncStoredSettings);
+    };
+  }, []);
 
   useEffect(() => {
     applySettingsToDocument(settings);
-    window.localStorage.setItem(settingsStorageKey, JSON.stringify(settings));
+  }, [settings]);
+
+  useEffect(() => {
+    if (!hasHydratedSettings.current) {
+      return;
+    }
+
+    writeStoredSettings(settings);
   }, [settings]);
 
   useEffect(() => {
@@ -72,7 +101,8 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     () => ({
       settings,
       setArabicFont: (font) => setSettings((current) => ({ ...current, arabicFont: font })),
-      setArabicFontSize: (size) => setSettings((current) => sanitizeSettings({ ...current, arabicFontSize: size })),
+      setArabicFontSize: (size) =>
+        setSettings((current) => sanitizeSettings({ ...current, arabicFontSize: size })),
       setTranslationFontSize: (size) =>
         setSettings((current) => sanitizeSettings({ ...current, translationFontSize: size })),
       resetSettings: () => setSettings(defaultReaderSettings),
