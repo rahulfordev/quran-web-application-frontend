@@ -56,17 +56,17 @@ export default async function SurahPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-      <section className="rounded-4xl border border-white/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.92),rgba(247,240,231,0.86))] p-8 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.22)] backdrop-blur sm:p-10">
+      <section className="rounded-4xl border border-white/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.92),rgba(247,240,231,0.86))] p-6 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.22)] backdrop-blur sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.36em] text-emerald-700/80">{payload.surah.revelationType}</p>
         <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="font-display text-5xl tracking-tight text-stone-950 sm:text-6xl">{payload.surah.nameEnglish}</h1>
-            <p className="mt-3 text-lg text-stone-500">{payload.surah.nameEnglishTranslation}</p>
+            <h1 className="font-display text-3xl tracking-tight text-stone-950 sm:text-5xl lg:text-6xl">{payload.surah.nameEnglish}</h1>
+            <p className="mt-3 text-base text-stone-500 sm:text-lg">{payload.surah.nameEnglishTranslation}</p>
           </div>
           <div className="text-right">
             <p
               dir="rtl"
-              className="text-5xl leading-none text-stone-950 sm:text-6xl"
+              className="text-4xl leading-none text-stone-950 sm:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-arabic-current)" }}
             >
               {payload.surah.nameArabic}

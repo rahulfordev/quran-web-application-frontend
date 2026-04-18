@@ -18,7 +18,7 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "rounded-4xl border border-white/60 bg-white/85 p-8 text-center shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] backdrop-blur",
+        "rounded-4xl border border-white/60 bg-white/85 p-6 text-center shadow-[0_10px_24px_-18px_rgba(43,29,18,0.16)] backdrop-blur sm:p-8",
         className,
       )}
     >
@@ -27,10 +27,10 @@ export function EmptyState({
           {icon}
         </div>
       ) : null}
-      <h3 className="text-xl font-semibold tracking-tight text-stone-900">
+      <h3 className="text-lg font-semibold tracking-tight text-stone-900 sm:text-xl">
         {title}
       </h3>
-      <p className="mt-2 text-sm leading-7 text-stone-600">{description}</p>
+      <p className="mt-2 text-sm leading-6 text-stone-600 sm:leading-7">{description}</p>
     </div>
   );
 }

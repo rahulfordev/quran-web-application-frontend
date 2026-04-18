@@ -22,7 +22,7 @@ export function PaginationControls({
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700/70">
           Browse results
         </p>
-        <p className="mt-1 text-sm text-stone-500">
+        <p className="mt-1 text-xs text-stone-500 sm:text-sm">
           Showing page {pagination.page} of {pagination.totalPages} across{" "}
           {pagination.totalResults} matches.
         </p>
@@ -33,13 +33,13 @@ export function PaginationControls({
           type="button"
           onClick={() => onPageChange(Math.max(1, pagination.page - 1))}
           disabled={!pagination.hasPreviousPage}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-emerald-500/40 hover:text-stone-950 disabled:cursor-not-allowed disabled:opacity-45"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-3 py-2 text-xs font-medium text-stone-700 transition hover:border-emerald-500/40 hover:text-stone-950 disabled:cursor-not-allowed disabled:opacity-45 sm:px-4 sm:text-sm"
         >
           <ChevronLeft className="h-4 w-4" />
           Previous
         </button>
 
-        <div className="inline-flex min-h-11 items-center rounded-full border border-stone-200/80 bg-white px-4 py-2 text-sm font-medium text-stone-600">
+        <div className="inline-flex min-h-11 items-center rounded-full border border-stone-200/80 bg-white px-3 py-2 text-xs font-medium text-stone-600 sm:px-4 sm:text-sm">
           {pagination.page} / {pagination.totalPages}
         </div>
 
@@ -47,7 +47,7 @@ export function PaginationControls({
           type="button"
           onClick={() => onPageChange(pagination.page + 1)}
           disabled={!pagination.hasNextPage}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-4 py-2 text-sm font-medium text-stone-700 transition hover:border-emerald-500/40 hover:text-stone-950 disabled:cursor-not-allowed disabled:opacity-45"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-3 py-2 text-xs font-medium text-stone-700 transition hover:border-emerald-500/40 hover:text-stone-950 disabled:cursor-not-allowed disabled:opacity-45 sm:px-4 sm:text-sm"
         >
           Next
           <ChevronRight className="h-4 w-4" />

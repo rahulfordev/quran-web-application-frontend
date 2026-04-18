@@ -164,7 +164,7 @@ export function SearchExperience() {
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
                 Results
               </p>
-              <h2 className="mt-2 font-display text-3xl tracking-tight text-stone-950">
+              <h2 className="mt-2 font-display text-2xl tracking-tight text-stone-950 sm:text-3xl">
                 {visibleResults.pagination.totalResults} ayah matches for &quot;
                 {visibleResults.query}&quot;
               </h2>
@@ -205,18 +205,18 @@ function SearchResultCard({
   query: string;
 }) {
   return (
-    <article className="rounded-4xl border border-white/70 bg-white/88 p-6 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur">
+    <article className="rounded-4xl border border-white/70 bg-white/88 p-5 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.32em] text-emerald-700/70">
             {item.revelationType}
           </p>
-          <h3 className="mt-2 text-xl font-semibold text-stone-950">
+          <h3 className="mt-2 text-lg font-semibold text-stone-950 sm:text-xl">
             {item.surahNameEnglish} - Ayah {item.ayahNumber}
           </h3>
           <p
             dir="rtl"
-            className="mt-2 text-2xl text-stone-800"
+            className="mt-2 text-xl text-stone-800 sm:text-2xl"
             style={{ fontFamily: "var(--font-arabic-current)" }}
           >
             {item.surahNameArabic}
@@ -239,7 +239,7 @@ function SearchResultCard({
         {item.arabicText}
       </p>
 
-      <p className="mt-5 leading-8 text-stone-700 [font-size:var(--reader-translation-size)]">
+      <p className="mt-5 leading-7 text-stone-700 [font-size:var(--reader-translation-size)] sm:leading-8">
         {highlightText(item.translationText, query)}
       </p>
     </article>

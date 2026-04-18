@@ -29,7 +29,7 @@ export function SearchBar({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
-        className="w-full bg-transparent text-sm text-stone-800 outline-none placeholder:text-stone-400 sm:text-base"
+        className="w-full bg-transparent text-sm text-stone-800 outline-none placeholder:text-stone-400 sm:text-[15px] lg:text-base"
       />
       {value ? (
         <button

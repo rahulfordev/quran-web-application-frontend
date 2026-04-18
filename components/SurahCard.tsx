@@ -28,7 +28,7 @@ export function SurahCard({ surah, className }: SurahCardProps) {
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-emerald-700/80">
               {surah.revelationType}
             </p>
-            <h3 className="mt-1 text-xl font-semibold tracking-tight text-stone-950">
+            <h3 className="mt-1 text-lg font-semibold tracking-tight text-stone-950 sm:text-xl">
               {surah.nameEnglish}
             </h3>
             <p className="mt-1 text-sm text-stone-500">
@@ -43,7 +43,7 @@ export function SurahCard({ surah, className }: SurahCardProps) {
         <div>
           <p
             dir="rtl"
-            className="text-[1.95rem] leading-none text-stone-950"
+            className="text-[1.7rem] leading-none text-stone-950 sm:text-[1.95rem]"
             style={{ fontFamily: "var(--font-arabic-current)" }}
           >
             {surah.nameArabic}

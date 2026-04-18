@@ -6,8 +6,8 @@ interface AyahItemProps {
 
 export function AyahItem({ ayah }: AyahItemProps) {
   return (
-    <article className="rounded-4xl border border-white/60 bg-white/85 p-6 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur sm:p-8">
-      <div className="flex items-center gap-3 text-sm font-medium tracking-[0.24em] text-stone-500">
+    <article className="rounded-4xl border border-white/60 bg-white/85 p-5 shadow-[0_12px_28px_-20px_rgba(43,29,18,0.18)] backdrop-blur sm:p-8">
+      <div className="flex items-center gap-3 text-xs font-medium tracking-[0.2em] text-stone-500 sm:text-sm sm:tracking-[0.24em]">
         <span className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-800">
           {ayah.numberInSurah}
         </span>
@@ -24,7 +24,7 @@ export function AyahItem({ ayah }: AyahItemProps) {
 
       <div className="mt-6 h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent" />
 
-      <p className="mt-6 max-w-3xl leading-8 text-stone-700 [font-size:var(--reader-translation-size)]">
+      <p className="mt-6 max-w-3xl leading-7 text-stone-700 [font-size:var(--reader-translation-size)] sm:leading-8">
         {ayah.translationText}
       </p>
     </article>
